@@ -1,6 +1,6 @@
 package com.weverton.rest_with_SpringBoot.controllers;
 
-import com.weverton.rest_with_SpringBoot.PersonServices;
+import com.weverton.rest_with_SpringBoot.services.PersonServices;
 import com.weverton.rest_with_SpringBoot.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,7 +14,6 @@ public class PersonController {
 
     @Autowired
     private PersonServices service;
-    // private PersonServices service = new PersonServices();
 
     @RequestMapping(method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE

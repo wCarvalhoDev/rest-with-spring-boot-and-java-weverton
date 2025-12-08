@@ -1,4 +1,4 @@
-package com.weverton.rest_with_SpringBoot;
+package com.weverton.rest_with_SpringBoot.services;
 
 import com.weverton.rest_with_SpringBoot.models.Person;
 import org.springframework.stereotype.Service;
