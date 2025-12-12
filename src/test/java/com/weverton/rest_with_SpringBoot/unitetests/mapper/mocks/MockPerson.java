@@ -3,7 +3,7 @@ package com.weverton.rest_with_SpringBoot.unitetests.mapper.mocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.weverton.rest_with_SpringBoot.data.dto.PersonDTO;
+import com.weverton.rest_with_SpringBoot.data.dto.v1.PersonDTO;
 import com.weverton.rest_with_SpringBoot.models.Person;
 
 public class MockPerson {
