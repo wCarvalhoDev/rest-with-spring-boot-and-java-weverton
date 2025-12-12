@@ -3,17 +3,16 @@ spring:
     name: rest-with-SpringBoot
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/rest_with_SpringBoot?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/rest_with_springboot?useTimezone=true&serverTimezone=UTC
     username: root
     password: Webverton123.
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
     show-sql: false
     open-in-view: false
 logging:
   level:
-    #root: WARN
     com.weverton: DEBUG

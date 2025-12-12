@@ -1,12 +1,10 @@
 package com.weverton.rest_with_SpringBoot.services;
 
-import com.weverton.rest_with_SpringBoot.data.dto.v1.PersonDTO;
-import com.weverton.rest_with_SpringBoot.data.dto.v2.PersonDTOV2;
+import com.weverton.rest_with_SpringBoot.data.dto.PersonDTO;
 import com.weverton.rest_with_SpringBoot.exception.ResourceNotFoundException;
 import static com.weverton.rest_with_SpringBoot.mapper.ObjectMapper.parseListObjects;
 import static com.weverton.rest_with_SpringBoot.mapper.ObjectMapper.parseObject;
 
-import com.weverton.rest_with_SpringBoot.mapper.custom.PersonMapper;
 import com.weverton.rest_with_SpringBoot.models.Person;
 import com.weverton.rest_with_SpringBoot.repository.PersonRepository;
 import org.slf4j.LoggerFactory;
@@ -25,9 +23,6 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
 
-    @Autowired
-    PersonMapper converter;
-
     public List<PersonDTO> findAll() {
         logger.info("Finding all People!");
         return parseListObjects(repository.findAll(), PersonDTO.class);
@@ -44,12 +39,6 @@ public class PersonServices {
         logger.info("Creating one person.");
         var entity = parseObject(person, Person.class);
         return parseObject(repository.save(entity), PersonDTO.class);
-    }
-
-    public PersonDTOV2 createV2(PersonDTOV2 person) {
-        logger.info("Creating one person V2.");
-        var entity = parseObject(person, Person.class);
-        return converter.convertEntityToDTO(repository.save(entity));
     }
 
     public  PersonDTO update( PersonDTO person) {
