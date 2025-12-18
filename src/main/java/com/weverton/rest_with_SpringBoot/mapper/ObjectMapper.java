@@ -17,7 +17,7 @@ public class ObjectMapper {
         return mapper.map(origin, destination);
     }
 
-    //segundo metodo: mema ideia mas temos uma lista
+    //segundo metodo: mesma ideia, mas temos uma lista
     //destinationObjects: lista temporária para retornar
     //iteramos sobre os objetos originais
     //convertemos um a um pro destino
