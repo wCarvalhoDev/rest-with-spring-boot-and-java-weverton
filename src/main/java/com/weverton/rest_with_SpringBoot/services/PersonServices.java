@@ -2,6 +2,7 @@ package com.weverton.rest_with_SpringBoot.services;
 
 import com.weverton.rest_with_SpringBoot.controllers.PersonController;
 import com.weverton.rest_with_SpringBoot.data.dto.PersonDTO;
+import com.weverton.rest_with_SpringBoot.exception.RequiredObjectIsNullException;
 import com.weverton.rest_with_SpringBoot.exception.ResourceNotFoundException;
 
 import static com.weverton.rest_with_SpringBoot.mapper.ObjectMapper.parseListObjects;
@@ -19,12 +20,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-
 @Service
 public class PersonServices {
 
-    private final AtomicLong counter = new AtomicLong();
     private Logger logger = LoggerFactory.getLogger(PersonServices.class.getName());
 
     @Autowired
@@ -32,6 +30,7 @@ public class PersonServices {
 
     public List<PersonDTO> findAll() {
         logger.info("Finding all People!");
+
         var persons = parseListObjects(repository.findAll(), PersonDTO.class);
         persons.forEach(this::addHateoasLinks);
         return persons;
@@ -39,6 +38,7 @@ public class PersonServices {
 
     public PersonDTO findById(Long id) {
         logger.info("Finding one Person.");
+
         var entity = repository.findById(id).
                 orElseThrow(() -> new ResourceNotFoundException("No records found for this ID."));
         var dto = parseObject(entity, PersonDTO.class);
@@ -47,7 +47,10 @@ public class PersonServices {
     }
 
     public PersonDTO create(PersonDTO person) {
+        if (person == null) throw new RequiredObjectIsNullException();
+
         logger.info("Creating one person.");
+
         var entity = parseObject(person, Person.class);
         var dto = parseObject(repository.save(entity), PersonDTO.class);
         addHateoasLinks(dto);
@@ -55,7 +58,10 @@ public class PersonServices {
     }
 
     public PersonDTO update(PersonDTO person) {
+        if (person == null) throw new RequiredObjectIsNullException();
+
         logger.info("Updating one Person.");
+
         Person entity = repository.findById(person.getId()).
                 orElseThrow(() -> new ResourceNotFoundException("No records found for this ID."));
 
@@ -71,6 +77,7 @@ public class PersonServices {
 
     public void delete(Long id) {
         logger.info("Deleting one Person.");
+
         Person entity = repository.findById(id).
                 orElseThrow(() -> new ResourceNotFoundException("No records found for this ID."));
         repository.delete(entity);
