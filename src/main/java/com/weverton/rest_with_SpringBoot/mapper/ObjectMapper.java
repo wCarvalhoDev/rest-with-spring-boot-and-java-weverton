@@ -12,6 +12,7 @@ public class ObjectMapper {
     private static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
 
     //primeiro metodo: vai fazer parse de entidade para DTO e de DTO para entidade
+    // exemplo:
     //recebbo O origin do tipo Person e converto para PersonDTO.class
     public static <O, D> D parseObject(O origin, Class<D> destination){
         return mapper.map(origin, destination);
