@@ -6,30 +6,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
+        <!--  lookup parent from repository  -->
     </parent>
-    <groupId>com.weverton</groupId>
-    <artifactId>rest-with-SpringBoot</artifactId>
+    <groupId>br.com.erudio</groupId>
+    <artifactId>rest-with-spring-boot-and-java-weverton</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rest-with-SpringBoot</name>
-    <description>Demo project for Spring Boot</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+    <name>rest-with-spring-boot-and-java-weverton</name>
     <properties>
         <java.version>21</java.version>
         <dozer.version>7.0.0</dozer.version>
         <springdoc.version>2.7.0</springdoc.version>
+        <testcontainers.version>1.20.4</testcontainers.version>
     </properties>
     <dependencies>
         <dependency>
@@ -81,6 +69,18 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mysql</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <!-- <version>5.5.0</version> -->
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -89,7 +89,6 @@
     </dependencies>
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -98,9 +97,9 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/rest_with_springboot?useTimezone=true&amp;serverTimezone=UTC</url>
+                    <url>jdbc:mysql://localhost:3306/rest_with_spring_boot_erudio?useTimezone=true&amp;serverTimezone=UTC</url>
                     <user>root</user>
-                    <password>Webverton123.</password>
+                    <password>admin123</password>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -118,5 +117,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

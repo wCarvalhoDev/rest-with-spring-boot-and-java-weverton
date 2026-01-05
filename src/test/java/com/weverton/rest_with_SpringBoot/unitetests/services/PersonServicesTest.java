@@ -1,9 +1,10 @@
-package com.weverton.rest_with_SpringBoot.services;
+package com.weverton.rest_with_SpringBoot.unitetests.services;
 
 import com.weverton.rest_with_SpringBoot.data.dto.PersonDTO;
 import com.weverton.rest_with_SpringBoot.exception.RequiredObjectIsNullException;
 import com.weverton.rest_with_SpringBoot.models.Person;
 import com.weverton.rest_with_SpringBoot.repository.PersonRepository;
+import com.weverton.rest_with_SpringBoot.services.PersonServices;
 import com.weverton.rest_with_SpringBoot.unitetests.mapper.mocks.MockPerson;
 
 import org.junit.jupiter.api.BeforeEach;
