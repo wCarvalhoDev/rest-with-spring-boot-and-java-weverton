@@ -9,10 +9,11 @@
         <relativePath/>
         <!--  lookup parent from repository  -->
     </parent>
-    <groupId>br.com.erudio</groupId>
-    <artifactId>rest-with-spring-boot-and-java-weverton</artifactId>
+    <groupId>com.weverton</groupId>
+    <artifactId>rest-with-SpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rest-with-spring-boot-and-java-weverton</name>
+    <name>rest-with-SpringBoot</name>
+    <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>21</java.version>
         <dozer.version>7.0.0</dozer.version>
@@ -97,9 +98,9 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/rest_with_spring_boot_erudio?useTimezone=true&amp;serverTimezone=UTC</url>
+                    <url>jdbc:mysql://localhost:3306/rest_with_springboot?useTimezone=true&amp;serverTimezone=UTC</url>
                     <user>root</user>
-                    <password>admin123</password>
+                    <password>Webverton123.</password>
                 </configuration>
                 <dependencies>
                     <dependency>
